@@ -11,14 +11,6 @@ const nextConfig = {
   },
   experimental: {
     optimizePackageImports: ['framer-motion', 'react-icons', '@heroicons/react'],
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
