@@ -53,7 +53,7 @@ export default function Reels() {
         setIsPlaying(prev => ({ ...prev, [videoId]: true }));
       } else {
         video.pause();
-        setIsPlaying(prev => ({ ...prev, [videoId]: false })));
+        setIsPlaying(prev => ({ ...prev, [videoId]: false }));
       }
     }
   };

@@ -16,82 +16,197 @@
 
 /* Light theme component overrides */
 .light .glass {
-  @apply bg-black/5 backdrop-blur-md border border-black/10;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
+/* Hero sections - keep white text with gold gradient */
 .light .text-gradient {
-  @apply bg-gradient-to-r from-gold-600 via-gray-800 to-gold-600 bg-clip-text text-transparent;
+  background: linear-gradient(to right, rgb(255 255 255), rgb(217 119 6), rgb(255 255 255));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .light .container-custom {
-  @apply text-gray-900;
+  color: rgb(17 24 39); /* gray-900 equivalent */
 }
 
-/* Light theme text colors */
+/* General text colors for light theme - DARK TEXT ON WHITE BACKGROUNDS */
 .light h1,
 .light h2,
 .light h3,
 .light h4,
 .light h5,
 .light h6 {
-  @apply text-gray-900;
+  color: rgb(17 24 39) !important; /* dark text for readability */
 }
 
 .light p {
-  @apply text-gray-700;
+  color: rgb(55 65 81); /* gray-700 equivalent */
 }
 
 /* Light theme navbar */
 .light header {
-  @apply bg-white/90 backdrop-blur-xl border-b border-gray-200/50;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
 }
 
 .light .navbar-link {
-  @apply text-gray-700 hover:text-gold-600;
+  color: rgb(55 65 81); /* gray-700 equivalent */
+}
+
+.light .navbar-link:hover {
+  color: rgb(217 119 6); /* gold-600 equivalent */
 }
 
 .light .navbar-logo {
-  @apply text-gray-900;
+  color: rgb(17 24 39); /* gray-900 equivalent */
 }
 
 /* Light theme sections */
 .light .section-bg-dark {
-  @apply bg-gradient-to-b from-gray-50 to-white;
+  background: linear-gradient(to bottom, rgb(249 250 251), rgb(255 255 255));
 }
 
 .light .section-bg-gray {
-  @apply bg-gradient-to-b from-white to-gray-50;
+  background: linear-gradient(to bottom, rgb(255 255 255), rgb(249 250 251));
 }
 
 /* Light theme cards */
 .light .card-dark {
-  @apply bg-white/80 border border-gray-200/50 shadow-lg;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(229, 231, 235, 0.5);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
+/* WHITE BACKGROUND SECTIONS - DARK TEXT */
+.light .bg-gradient-to-b.from-black.to-gray-900,
+.light .bg-gradient-to-b.from-gray-900.to-black,
+.light .bg-gradient-to-r.from-gray-900.via-black.to-gray-900 {
+  background: linear-gradient(to bottom, rgb(255 255 255), rgb(249 250 251)) !important;
+}
+
+.light .bg-gradient-to-r.from-gold-900\/20.via-black.to-gold-900\/20 {
+  background: linear-gradient(to right, rgba(217, 119, 6, 0.1), rgb(255 255 255), rgba(217, 119, 6, 0.1)) !important;
+}
+
+/* Text on white backgrounds - make dark */
 .light .text-white {
-  @apply text-gray-900;
+  color: rgb(17 24 39) !important; /* dark text on white backgrounds */
 }
 
 .light .text-gray-300 {
-  @apply text-gray-600;
+  color: rgb(75 85 99) !important; /* gray-600 for better contrast on white */
 }
 
 .light .text-gray-400 {
-  @apply text-gray-500;
+  color: rgb(107 114 128) !important; /* gray-500 for better contrast on white */
 }
 
 .light .text-gray-500 {
-  @apply text-gray-600;
+  color: rgb(75 85 99); /* gray-600 equivalent */
 }
 
-/* Light theme footer */
+.light .text-gray-600 {
+  color: rgb(55 65 81); /* gray-700 equivalent */
+}
+
+.light .text-gray-700 {
+  color: rgb(31 41 55); /* gray-800 equivalent */
+}
+
+/* PORTFOLIO CARDS - WHITE TEXT ON DARK OVERLAYS */
+.light .group .absolute.bottom-0 h3,
+.light .group .absolute.bottom-0 p,
+.light .group .absolute.bottom-0 .text-white {
+  color: rgb(255 255 255) !important; /* white text for portfolio cards */
+}
+
+.light .group .absolute.bottom-0 .text-gray-200 {
+  color: rgb(229 231 235) !important; /* light gray for portfolio descriptions */
+}
+
+.light .group .absolute.bottom-0 span {
+  color: rgb(255 255 255) !important; /* white text for portfolio tags */
+}
+
+/* Portfolio lightbox - keep white text */
+.light .fixed.inset-0 h3,
+.light .fixed.inset-0 p,
+.light .fixed.inset-0 .text-white {
+  color: rgb(255 255 255) !important; /* white text for lightbox */
+}
+
+.light .fixed.inset-0 .text-gray-300 {
+  color: rgb(209 213 219) !important; /* light gray for lightbox descriptions */
+}
+
+/* HERO SECTIONS ONLY - White text with gold gradients */
+.light .hero-text,
+.light section.relative.min-h-screen h1,
+.light section.relative.min-h-screen .text-gradient {
+  color: rgb(255 255 255) !important; /* white text for hero sections */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(217, 119, 6, 0.3);
+}
+
+.light .hero-subtitle,
+.light section.relative.min-h-screen p,
+.light section.relative.min-h-screen .text-white\/90 {
+  color: rgb(255 255 255) !important; /* white text for hero sections */
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Hero section background overlay for light theme */
+.light section.relative.min-h-screen .bg-gradient-to-b.from-black\/40,
+.light section.relative.min-h-screen .bg-gradient-to-b.from-black\/60 {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)) !important;
+}
+
+/* Light theme footer - make text dark on light background */
 .light footer {
-  @apply bg-gradient-to-b from-gray-100 to-gray-200 text-gray-800;
+  background: linear-gradient(to bottom, rgb(243 244 246), rgb(229 231 235)) !important;
+  color: rgb(31 41 55) !important; /* gray-800 equivalent */
+}
+
+.light footer h4 {
+  color: rgb(17 24 39) !important; /* dark text for footer headings */
+}
+
+.light footer p,
+.light footer span,
+.light footer li {
+  color: rgb(55 65 81) !important; /* gray-700 for footer text */
+}
+
+.light footer .text-white {
+  color: rgb(17 24 39) !important; /* dark text for footer */
+}
+
+.light footer .text-gray-300,
+.light footer .text-gray-400 {
+  color: rgb(75 85 99) !important; /* gray-600 for footer */
+}
+
+.light footer .text-gray-500 {
+  color: rgb(107 114 128) !important; /* gray-500 for footer */
 }
 
 /* Light theme buttons */
 .light .btn-glass {
-  @apply bg-white/80 text-gray-900 hover:bg-white/90 border border-gray-200/50;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgb(17 24 39); /* gray-900 equivalent */
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.light .btn-glass:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Light theme scrollbar */
@@ -107,77 +222,85 @@
 .light input,
 .light textarea,
 .light select {
-  @apply bg-white/90 text-gray-900 border border-gray-300;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: rgb(17 24 39); /* gray-900 equivalent */
+  border: 1px solid rgb(209 213 219); /* gray-300 equivalent */
 }
 
 .light input:focus,
 .light textarea:focus,
 .light select:focus {
-  @apply bg-white text-gray-900 border-gold-500 ring-gold-500;
+  background-color: rgb(255 255 255);
+  color: rgb(17 24 39); /* gray-900 equivalent */
+  border-color: rgb(217 119 6); /* gold-500 equivalent */
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
 }
 
 .light input::placeholder,
 .light textarea::placeholder {
-  @apply text-gray-500;
+  color: rgb(107 114 128); /* gray-500 equivalent */
 }
 
 /* Select dropdown options styling for light theme */
 .light select option {
-  @apply bg-white text-gray-900;
+  background-color: rgb(255 255 255);
+  color: rgb(17 24 39); /* gray-900 equivalent */
 }
 
 /* Status message styling for light theme */
 .light .bg-green-900\/50 {
-  @apply bg-green-100/90 text-green-800 border-green-300;
+  background-color: rgb(220 252 231 / 0.9); /* green-100/90 equivalent */
+  color: rgb(22 101 52); /* green-800 equivalent */
+  border-color: rgb(134 239 172); /* green-300 equivalent */
 }
 
 .light .bg-red-900\/50 {
-  @apply bg-red-100/90 text-red-800 border-red-300;
+  background-color: rgb(254 226 226 / 0.9); /* red-100/90 equivalent */
+  color: rgb(153 27 27); /* red-800 equivalent */
+  border-color: rgb(252 165 165); /* red-300 equivalent */
 }
 
 .light .text-green-300 {
-  @apply text-green-800;
+  color: rgb(22 101 52); /* green-800 equivalent */
 }
 
 .light .text-red-300 {
-  @apply text-red-800;
+  color: rgb(153 27 27); /* red-800 equivalent */
 }
 
 /* Contact cards hover effects */
 .light .hover\:bg-white\/10:hover {
-  @apply bg-gray-100/80;
+  background-color: rgb(243 244 246 / 0.8); /* gray-100/80 equivalent */
 }
 
 .light .hover\:bg-green-500\/20:hover {
-  @apply bg-green-100/60;
+  background-color: rgb(220 252 231 / 0.6); /* green-100/60 equivalent */
 }
 
 .light .hover\:bg-blue-500\/20:hover {
-  @apply bg-blue-100/60;
+  background-color: rgb(219 234 254 / 0.6); /* blue-100/60 equivalent */
 }
 
-/* Service section styling */
-.light .bg-gradient-to-b.from-black.to-gray-900,
-.light .bg-gradient-to-b.from-gray-900.to-black {
-  @apply from-white to-gray-50;
-}
-
-/* Ensure glass components work in light theme */
+/* Enhanced glass components for light theme */
 .light .glass input,
 .light .glass textarea,
 .light .glass select {
-  @apply bg-white/70 text-gray-900 border border-gray-200;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgb(17 24 39); /* gray-900 equivalent */
+  border: 1px solid rgb(229 231 235); /* gray-200 equivalent */
 }
 
 .light .glass input:focus,
 .light .glass textarea:focus,
 .light .glass select:focus {
-  @apply bg-white text-gray-900;
+  background-color: rgb(255 255 255);
+  color: rgb(17 24 39); /* gray-900 equivalent */
 }
 
 /* Date input specific styling */
 .light input[type="date"] {
-  @apply bg-white/90 text-gray-900;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: rgb(17 24 39); /* gray-900 equivalent */
 }
 
 .light input[type="date"]::-webkit-calendar-picker-indicator {
@@ -186,49 +309,34 @@
 
 /* Number input styling */
 .light input[type="number"] {
-  @apply bg-white/90 text-gray-900;
-}
-
-/* Additional text color overrides for light theme */
-.light .text-gray-700 {
-  @apply text-gray-800;
-}
-
-.light .text-gray-600 {
-  @apply text-gray-700;
-}
-
-/* Hero section text colors */
-.light .hero-text {
-  @apply text-gray-900;
-}
-
-.light .hero-subtitle {
-  @apply text-gray-700;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: rgb(17 24 39); /* gray-900 equivalent */
 }
 
 /* Contact info cards text colors */
 .light .contact-card-title {
-  @apply text-gray-900;
+  color: rgb(17 24 39); /* gray-900 equivalent */
 }
 
 .light .contact-card-content {
-  @apply text-gray-700;
+  color: rgb(55 65 81); /* gray-700 equivalent */
 }
 
 /* Booking form section number styling */
 .light .section-number {
-  @apply bg-gold-600 text-white;
+  background-color: rgb(217 119 6); /* gold-600 equivalent */
+  color: rgb(255 255 255);
 }
 
 /* Sidebar styling in light theme */
 .light .sidebar-card {
-  @apply bg-white/70;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 /* Loading spinner styling */
 .light .spinner-border {
-  @apply border-gray-300 border-t-gray-900;
+  border-color: rgb(209 213 219); /* gray-300 equivalent */
+  border-top-color: rgb(17 24 39); /* gray-900 equivalent */
 }
 
 /* Video player controls styling for light theme */
@@ -244,13 +352,99 @@
 
 /* Video modal styling for light theme */
 .light .video-modal {
-  @apply bg-white/95;
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 .light .video-modal-header {
-  @apply bg-gray-100/80;
+  background-color: rgba(243, 244, 246, 0.8);
 }
 
 .light .video-modal-footer {
-  @apply bg-gray-50;
+  background-color: rgb(249 250 251);
+}
+
+/* Stats section - white background gets dark text */
+.light .glass .text-4xl,
+.light .glass .text-5xl {
+  color: rgb(17 24 39) !important;
+}
+
+.light .glass .text-lg.text-gray-300 {
+  color: rgb(75 85 99) !important;
+}
+
+/* Testimonial section - white background gets dark text */
+.light .glass p {
+  color: rgb(31 41 55) !important; /* gray-800 for better contrast */
+}
+
+.light .glass .text-lg {
+  color: rgb(31 41 55) !important; /* gray-800 for better contrast */
+}
+
+.light .glass .text-lg.text-white {
+  color: rgb(17 24 39) !important; /* gray-900 for testimonial text */
+}
+
+.light .glass .text-sm.text-gray-400 {
+  color: rgb(75 85 99) !important; /* gray-600 for role text */
+}
+
+/* Section text on white backgrounds */
+.light .text-xl {
+  color: rgb(55 65 81) !important; /* gray-700 for better visibility */
+}
+
+.light .text-xl.text-gray-300 {
+  color: rgb(55 65 81) !important; /* gray-700 for descriptions */
+}
+
+/* Gold text color enhancement for light theme */
+.light .text-gold-400 {
+  color: rgb(217 119 6) !important; /* gold-600 for better contrast */
+  font-weight: 600;
+}
+
+/* Section headers and text */
+.light .font-medium.text-gold-400 {
+  color: rgb(217 119 6) !important;
+  font-weight: 600;
+}
+
+.light .space-y-6.text-gray-300 {
+  color: rgb(55 65 81) !important;
+}
+
+/* Button text visibility */
+.light .btn.glass.text-white {
+  color: rgb(17 24 39) !important;
+}
+
+/* About section text enhancement */
+.light .text-lg.leading-relaxed {
+  color: rgb(55 65 81) !important;
+}
+
+/* Newsletter and footer glass components */
+.light footer .glass {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.light footer .glass h3 {
+  color: rgb(17 24 39) !important;
+}
+
+.light footer .glass p {
+  color: rgb(75 85 99) !important;
+}
+
+.light footer .glass input {
+  color: rgb(17 24 39) !important;
+}
+
+/* Service section styling */
+.light .bg-gradient-to-b.from-black.to-gray-900,
+.light .bg-gradient-to-b.from-gray-900.to-black {
+  background: linear-gradient(to bottom, rgb(255 255 255), rgb(249 250 251));
 }

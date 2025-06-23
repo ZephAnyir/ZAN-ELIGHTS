@@ -36,7 +36,7 @@ export default function Footer() {
               </Link>
             </div>
             <p className="mb-6 leading-relaxed text-gray-400 dark:text-gray-400 light:text-gray-600">
-              Capturing Light, Creating Stories. Professional photography and videography services that bring your moments to life with artistic excellence.
+              Kenyan-based photography and videography company creating high-quality visual content. Blending artistic vision with modern technology since April 2024.
             </p>
             <div className="flex space-x-4">
               <a 
@@ -155,7 +155,23 @@ export default function Footer() {
                   >
                     +254 706 190246
                   </a>
-                  <span className="text-xs text-gray-500 dark:text-gray-500 light:text-gray-500">WhatsApp & Calls</span>
+                  <span className="text-xs text-gray-500 dark:text-gray-500 light:text-gray-500">Main WhatsApp</span>
+                </div>
+              </li>
+              <li className="flex items-start gap-3 group">
+                <div className="w-5 h-5 text-green-400 mt-1 group-hover:animate-float">
+                  <FaWhatsapp />
+                </div>
+                <div>
+                  <a 
+                    href="https://wa.me/254700440330" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-400 dark:text-gray-400 light:text-gray-600 hover:text-green-400 transition-colors duration-300 block"
+                  >
+                    +254 700 440330
+                  </a>
+                  <span className="text-xs text-gray-500 dark:text-gray-500 light:text-gray-500">Alternative WhatsApp</span>
                 </div>
               </li>
               <li className="flex items-start gap-3 group">
@@ -219,9 +235,20 @@ export default function Footer() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
+              className="text-center md:text-left"
             >
-              <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-center md:text-left">
+              <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 mb-2">
                 &copy; {currentYear} ZAN E-lite Visuals. All rights reserved.
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-500 light:text-gray-500">
+                Designed and Developed by <a 
+                  href="https://wa.me/254700440330" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gold-400 dark:text-gold-400 light:text-gold-600 font-medium hover:text-gold-300 dark:hover:text-gold-300 light:hover:text-gold-700 transition-colors duration-300"
+                >
+                  HarryDesigns
+                </a>
               </p>
             </motion.div>
             

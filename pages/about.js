@@ -2,91 +2,88 @@ import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaAward, FaCamera, FaUsers, FaStar, FaQuoteLeft, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaAward, FaCamera, FaUsers, FaStar, FaQuoteLeft, FaInstagram } from 'react-icons/fa';
 import HeroSection from '../components/HeroSection';
 
 const teamMembers = [
   {
     id: 1,
-    name: 'Zephaniah Amolo',
-    role: 'Founder & Lead Photographer',
-    image: '/Images/camera.jpg',
-    bio: 'With over 8 years of experience in photography, Zephaniah brings a unique artistic vision to every project.',
-    specialties: ['Wedding Photography', 'Portrait Sessions', 'Event Coverage'],
+    name: 'Zephaniah Anyir',
+    role: 'Photographer, Videographer, Editor & Graphic Designer',
+    image: '/Images/Zephaniah Anyir.jpg',
+    bio: 'Passionate visionary who founded ZAN E-lite Visuals with a commitment to creating exceptional visual content that tells compelling stories.',
+    specialties: ['Photography', 'Videography', 'Video Editing', 'Graphic Design'],
     social: {
-      instagram: 'https://www.instagram.com/anyirzeph?igsh=Z3ozMHJsb3JhYTdp',
-      linkedin: '#'
+      instagram: 'https://www.instagram.com/anyirzeph?igsh=Z3ozMHJsb3JhYTdp'
     }
   },
   {
     id: 2,
-    name: 'Sarah Johnson',
-    role: 'Senior Photographer',
-    image: '/Images/indor.jpg',
-    bio: 'Specializing in portrait and event photography, Sarah has a talent for capturing genuine emotions.',
-    specialties: ['Portrait Photography', 'Family Sessions', 'Corporate Events'],
+    name: 'Alvin Okochil',
+    role: 'Photographer, Videographer & Editor',
+    image: '/Images/Alvin Okochil.jpg',
+    bio: 'Multi-talented creative professional specializing in capturing stunning visuals and bringing them to life through expert editing and post-production.',
+    specialties: ['Photography', 'Videography', 'Video Editing', 'Post-Production'],
     social: {
-      instagram: '#',
-      linkedin: '#'
+      instagram: 'https://www.instagram.com/new_chapters_of_vin/'
     }
   },
   {
     id: 3,
-    name: 'Michael Chen',
-    role: 'Videographer & Editor',
-    image: '/Images/outdoor.jpg',
-    bio: 'With a background in film, Michael creates cinematic wedding and event videos that tell compelling stories.',
-    specialties: ['Wedding Videography', 'Commercial Videos', 'Post-Production'],
+    name: 'Harry Iduyo',
+    role: 'Software Developer & Graphic Designer',
+    image: '/Images/Harry Iduyo.jpg',
+    bio: 'Technology expert who combines software development skills with creative graphic design to enhance our digital presence and visual branding.',
+    specialties: ['Software Development', 'Graphic Design', 'Web Development', 'Digital Solutions'],
     social: {
-      instagram: '#',
-      linkedin: '#'
+      instagram: 'https://www.instagram.com/trojan________horse/'
     }
   }
 ];
 
 const timeline = [
   {
-    year: '2015',
-    title: 'The Beginning',
-    description: 'Started as a passionate photographer with a single camera, capturing moments for friends and family.',
-    icon: '🌱'
-  },
-  {
-    year: '2017',
-    title: 'First Professional Gig',
-    description: 'Landed first official client and established ZAN E-lite Visuals as a professional photography business.',
-    icon: '📸'
-  },
-  {
-    year: '2019',
-    title: 'Expanded Services',
-    description: 'Added videography and graphic design services to meet growing client demands.',
-    icon: '🎬'
-  },
-  {
-    year: '2021',
-    title: 'Award Recognition',
-    description: 'Received the "Best Emerging Photographer" award at the National Photography Awards.',
-    icon: '🏆'
-  },
-  {
-    year: '2023',
-    title: 'Studio Launch',
-    description: 'Opened our first professional studio space, offering clients a premium photography experience.',
-    icon: '🏢'
+    year: '2024',
+    title: 'Company Launch',
+    description: 'ZAN E-lite Visuals officially launched on 30th April 2024, beginning our journey as a professional Kenyan photography and videography company.',
+    icon: '🚀'
   },
   {
     year: '2024',
-    title: 'Growing Team',
-    description: 'Expanded our team to include talented photographers, videographers, and editors.',
-    icon: '👥'
+    title: 'Building Our Foundation',
+    description: 'Established our core services focusing on high-quality visual content creation for individuals, brands, and businesses.',
+    icon: '🏗️'
+  },
+  {
+    year: '2024',
+    title: 'Creative Portfolio Growth',
+    description: 'Developed diverse portfolio showcasing wedding photography, portraits, events, and professional videography services.',
+    icon: '📸'
+  },
+  {
+    year: '2024',
+    title: 'Technology Integration',
+    description: 'Invested in modern photography and videography equipment to blend artistic vision with cutting-edge technology.',
+    icon: '🎬'
+  },
+  {
+    year: '2024',
+    title: 'Client Success Stories',
+    description: 'Built strong relationships with clients across Kenya, delivering striking and timeless visual content tailored to their needs.',
+    icon: '⭐'
+  },
+  {
+    year: '2025+',
+    title: 'Future Vision',
+    description: 'Continuing to grow as Kenya\'s premier visual storytelling company, expanding our creative services and technological capabilities.',
+    icon: '🌟'
   }
 ];
 
 const stats = [
-  { id: 1, value: '500+', label: 'Happy Clients', icon: <FaUsers className="w-8 h-8" /> },
-  { id: 2, value: '1000+', label: 'Projects Completed', icon: <FaCamera className="w-8 h-8" /> },
-  { id: 3, value: '50+', label: 'Awards Won', icon: <FaAward className="w-8 h-8" /> },
+  { id: 1, value: '50+', label: 'Happy Clients', icon: <FaUsers className="w-8 h-8" /> },
+  { id: 2, value: '100+', label: 'Projects Completed', icon: <FaCamera className="w-8 h-8" /> },
+  { id: 3, value: '8+', label: 'Months Experience', icon: <FaAward className="w-8 h-8" /> },
   { id: 4, value: '5.0', label: 'Average Rating', icon: <FaStar className="w-8 h-8" /> }
 ];
 
@@ -168,13 +165,13 @@ export default function About() {
               </h2>
               <div className="space-y-6 text-gray-300 dark:text-gray-300 light:text-gray-700 text-lg leading-relaxed">
                 <p>
-                  Welcome to <span className="text-gold-400 dark:text-gold-400 light:text-gold-600 font-semibold">ZAN E-lite Visuals</span>, where passion meets creativity. Founded in 2015, we've grown from a small photography venture to a full-service visual storytelling company.
+                  <span className="text-gold-400 dark:text-gold-400 light:text-gold-600 font-semibold">ZAN E-lite Visuals</span> is a Kenyan-based photography and videography company dedicated to creating high-quality visual content that captures stories, moments, and creativity.
                 </p>
                 <p>
-                  Our mission is to capture the essence of every moment, transforming ordinary scenes into extraordinary memories. We believe that every picture tells a story, and we're here to help tell yours.
+                  Since launching on <span className="text-gold-400 dark:text-gold-400 light:text-gold-600 font-medium">30th April 2024</span>, we have focused on helping individuals, brands, and businesses express themselves through powerful imagery and professional media production.
                 </p>
                 <p>
-                  With a keen eye for detail and a commitment to excellence, we strive to deliver stunning visuals that exceed expectations and create lasting impressions.
+                  We blend artistic vision with modern technology to deliver visuals that are striking, timeless, and tailored to your needs. Every project is approached with creativity and precision to ensure exceptional results.
                 </p>
               </div>
             </motion.div>
@@ -328,14 +325,6 @@ export default function About() {
                       className="p-2 rounded-full glass hover:bg-gold-400/20 text-gold-400 transition-all duration-300 hover:scale-110"
                     >
                       <FaInstagram className="w-4 h-4" />
-                    </a>
-                    <a 
-                      href={member.social.linkedin} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="p-2 rounded-full glass hover:bg-gold-400/20 text-gold-400 transition-all duration-300 hover:scale-110"
-                    >
-                      <FaLinkedin className="w-4 h-4" />
                     </a>
                   </div>
                 </div>

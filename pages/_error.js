@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
-import { FaHome, FaRefresh } from 'react-icons/fa';
+import { FaHome } from 'react-icons/fa';
+import { HiRefresh } from 'react-icons/hi';
 
 function Error({ statusCode }) {
   return (
@@ -34,7 +35,7 @@ function Error({ statusCode }) {
                 <FaHome className="mr-2" /> Go Home
               </Link>
               <button onClick={() => window.location.reload()} className="btn glass text-white hover:bg-white/20 text-lg px-8 py-4">
-                <FaRefresh className="mr-2" /> Refresh Page
+                <HiRefresh className="mr-2" /> Refresh Page
               </button>
             </div>
           </motion.div>

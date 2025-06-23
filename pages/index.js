@@ -6,9 +6,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const stats = [
-  { id: 1, value: 500, label: 'Happy Clients', suffix: '+' },
-  { id: 2, value: 1000, label: 'Projects Completed', suffix: '+' },
-  { id: 3, value: 50, label: 'Awards Won', suffix: '+' },
+  { id: 1, value: 50, label: 'Happy Clients', suffix: '+' },
+  { id: 2, value: 100, label: 'Projects Completed', suffix: '+' },
+  { id: 3, value: 8, label: 'Months Experience', suffix: '+' },
   { id: 4, value: 5.0, label: 'Average Rating', suffix: '' },
 ];
 
@@ -43,15 +43,33 @@ const slides = [
   {
     src: '/Images/camera.jpg',
     alt: 'Professional Camera',
-    title: 'Experience Excellence in Photography',
-    subtitle: 'At ZAN E-Lite, we deliver professional, creative, and timeless imagery.'
+    title: 'Capture Life\'s Perfect Moments',
+    subtitle: 'Professional photography and videography services that tell your unique story.'
   },
   {
     src: '/Images/wedding-1.jpg',
     alt: 'Wedding Celebration',
-    title: 'Your Story, Beautifully Told',
-    subtitle: 'Let us turn your special day into timeless memories.'
+    title: 'Your Dream Wedding Awaits',
+    subtitle: 'From intimate ceremonies to grand celebrations - we make your special day unforgettable.'
   },
+  {
+    src: '/Images/graduation.jpg',
+    alt: 'Graduation Ceremony',
+    title: 'Celebrate Your Achievement',
+    subtitle: 'Mark your milestone with stunning graduation photos that capture your success and joy.'
+  },
+  {
+    src: '/Images/product.jpg',
+    alt: 'Product Photography',
+    title: 'Elevate Your Brand',
+    subtitle: 'Professional product photography and brand visuals that make your business shine.'
+  },
+  {
+    src: '/Images/wedding.jpg',
+    alt: 'Wedding Photography',
+    title: 'Where Art Meets Emotion',
+    subtitle: 'Creating timeless memories with artistic vision and cutting-edge technology.'
+  }
 ];
 
 const AnimatedStat = memo(({ value, label, suffix }) => {
@@ -231,8 +249,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>ZAN E-lite Visuals | Professional Photography & Videography</title>
-        <meta name="description" content="Capturing Light, Creating Stories - Professional photography and videography services for weddings, portraits, events, and more." />
+        <title>ZAN E-lite Visuals | Professional Photography & Videography Kenya</title>
+        <meta name="description" content="Kenyan-based photography and videography company creating high-quality visual content since April 2024. Specializing in weddings, portraits, events, and professional media production." />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preload" href="/Images/camera.jpg" as="image" />
       </Head>
@@ -278,10 +296,10 @@ export default function Home() {
               </h2>
               <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
                 <p>
-                  Welcome to <span className="text-gold-400 font-semibold">ZAN E-lite Visuals</span>, where passion meets creativity. Founded in 2015, we've grown from a small photography venture to a full-service visual storytelling company.
+                  <span className="text-gold-400 font-semibold">ZAN E-lite Visuals</span> is a Kenyan-based photography and videography company dedicated to creating high-quality visual content that captures stories, moments, and creativity.
                 </p>
                 <p>
-                  Our mission is to capture the essence of every moment, transforming ordinary scenes into extraordinary memories.
+                  Since launching on <span className="text-gold-400 font-medium">30th April 2024</span>, we blend artistic vision with modern technology to deliver visuals that are striking, timeless, and tailored to your needs.
                 </p>
               </div>
               <Link href="/about" className="btn btn-primary mt-8 inline-flex items-center">
