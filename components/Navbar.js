@@ -20,6 +20,7 @@ export default function Navbar({ theme, toggleTheme }) {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Portfolio', href: '/portfolio' },
+    { name: 'Reels', href: '/reels' },
     { name: 'Services', href: '/services' },
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },

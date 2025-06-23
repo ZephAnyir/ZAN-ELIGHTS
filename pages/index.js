@@ -194,9 +194,9 @@ const HeroBgCarousel = memo(() => {
               <Link href="/portfolio" className="btn btn-primary text-lg px-8 py-4">
                 View Portfolio <FaArrowRight className="ml-2" />
               </Link>
-              <button className="btn glass text-white hover:bg-white/20 text-lg px-8 py-4">
+              <Link href="/reels" className="btn glass text-white hover:bg-white/20 text-lg px-8 py-4">
                 <FaPlay className="mr-2" /> Watch Reel
-              </button>
+              </Link>
             </div>
           </motion.div>
         </AnimatePresence>

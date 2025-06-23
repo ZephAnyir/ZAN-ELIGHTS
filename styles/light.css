@@ -230,3 +230,27 @@
 .light .spinner-border {
   @apply border-gray-300 border-t-gray-900;
 }
+
+/* Video player controls styling for light theme */
+.light video::-webkit-media-controls-panel {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.light video::-webkit-media-controls-play-button,
+.light video::-webkit-media-controls-volume-slider,
+.light video::-webkit-media-controls-timeline {
+  filter: invert(1);
+}
+
+/* Video modal styling for light theme */
+.light .video-modal {
+  @apply bg-white/95;
+}
+
+.light .video-modal-header {
+  @apply bg-gray-100/80;
+}
+
+.light .video-modal-footer {
+  @apply bg-gray-50;
+}
