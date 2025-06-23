@@ -30,30 +30,45 @@ export default function Booking() {
     setIsSubmitting(true);
     
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      setSubmitStatus({
-        success: true,
-        message: 'Booking request submitted successfully! We will contact you within 24 hours to confirm details.'
+      const response = await fetch('/api/booking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        date: '',
-        time: '',
-        location: '',
-        guests: '',
-        budget: '',
-        message: ''
-      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({
+          success: true,
+          message: result.message
+        });
+        
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          date: '',
+          time: '',
+          location: '',
+          guests: '',
+          budget: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus({
+          success: false,
+          message: result.message
+        });
+      }
       
     } catch (error) {
       setSubmitStatus({
         success: false,
-        message: 'There was an error submitting your booking. Please try again or contact us directly.'
+        message: 'Network error. Please try again or contact us directly via WhatsApp.'
       });
     } finally {
       setIsSubmitting(false);

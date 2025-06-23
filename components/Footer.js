@@ -58,7 +58,7 @@ export default function Footer() {
                 <FaWhatsapp className="w-5 h-5" />
               </a>
               <a 
-                href="mailto:zephaniaanyir@gmail.com" 
+                href="mailto:zanelightvisuals@gmail.com" 
                 className="w-10 h-10 rounded-full glass flex items-center justify-center text-gray-400 dark:text-gray-400 light:text-gray-600 hover:text-blue-400 hover:bg-blue-500/20 transition-all duration-300 hover:scale-110"
                 aria-label="Email"
               >
@@ -163,10 +163,10 @@ export default function Footer() {
                 </div>
                 <div>
                   <a 
-                    href="mailto:zephaniaanyir@gmail.com" 
+                    href="mailto:zanelightvisuals@gmail.com" 
                     className="text-gray-400 dark:text-gray-400 light:text-gray-600 hover:text-blue-400 transition-colors duration-300 block break-all"
                   >
-                    zephaniaanyir@gmail.com
+                    zanelightvisuals@gmail.com
                   </a>
                   <span className="text-xs text-gray-500 dark:text-gray-500 light:text-gray-500">Email inquiries</span>
                 </div>
