@@ -1,0 +1,407 @@
+import { useState, useEffect, useMemo, memo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaArrowRight, FaQuoteLeft, FaPlay } from 'react-icons/fa';
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
+
+const stats = [
+  { id: 1, value: 500, label: 'Happy Clients', suffix: '+' },
+  { id: 2, value: 1000, label: 'Projects Completed', suffix: '+' },
+  { id: 3, value: 50, label: 'Awards Won', suffix: '+' },
+  { id: 4, value: 5.0, label: 'Average Rating', suffix: '' },
+];
+
+const testimonials = [
+  {
+    id: 1,
+    name: 'Sarah Johnson',
+    role: 'Bride',
+    content: 'ZAN E-lite captured our wedding day perfectly!',
+    rating: 5,
+    image: '/Images/wedding.jpg'
+  },
+  {
+    id: 2,
+    name: 'Michael Ochieng',
+    role: 'Business Owner',
+    content: 'Professional, creative, and delivered beyond expectations.',
+    rating: 5,
+    image: '/Images/product.jpg'
+  },
+  {
+    id: 3,
+    name: 'Grace Mwende',
+    role: 'Graduate',
+    content: 'The graduation photos turned out amazing!',
+    rating: 5,
+    image: '/Images/graduation.jpg'
+  }
+];
+
+const slides = [
+  {
+    src: '/Images/camera.jpg',
+    alt: 'Professional Camera',
+    title: 'Experience Excellence in Photography',
+    subtitle: 'At ZAN E-Lite, we deliver professional, creative, and timeless imagery.'
+  },
+  {
+    src: '/Images/wedding-1.jpg',
+    alt: 'Wedding Celebration',
+    title: 'Your Story, Beautifully Told',
+    subtitle: 'Let us turn your special day into timeless memories.'
+  },
+];
+
+const AnimatedStat = memo(({ value, label, suffix }) => {
+  const [display, setDisplay] = useState(0);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => setDisplay(value), 500);
+    return () => clearTimeout(timer);
+  }, [value]);
+
+  return (
+    <motion.div 
+      className="text-center p-6 glass rounded-2xl hover:bg-white/10 transition-all duration-200 group"
+      whileHover={{ scale: 1.02 }}
+    >
+      <span className="text-4xl md:text-5xl font-bold text-gradient block mb-2">
+        {display}{suffix}
+      </span>
+      <span className="text-lg text-gray-300 group-hover:text-white transition-colors duration-200">
+        {label}
+      </span>
+    </motion.div>
+  );
+});
+
+AnimatedStat.displayName = 'AnimatedStat';
+
+const TestimonialCarousel = memo(() => {
+  const [index, setIndex] = useState(0);
+  
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="relative max-w-4xl mx-auto">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={testimonials[index].id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.4 }}
+          className="glass rounded-3xl p-8 shadow-2xl"
+        >
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
+              <Image
+                src={testimonials[index].image}
+                alt={testimonials[index].name}
+                fill
+                className="object-cover"
+                sizes="96px"
+              />
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <FaQuoteLeft className="text-gold-400 text-3xl mb-4 mx-auto md:mx-0" />
+              <p className="text-lg text-white mb-6 italic">"{testimonials[index].content}"</p>
+              <div className="flex items-center justify-center md:justify-start gap-4">
+                <div>
+                  <span className="font-bold text-gold-400 text-lg">{testimonials[index].name}</span>
+                  <p className="text-gray-400 text-sm">{testimonials[index].role}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+      
+      <div className="flex justify-center gap-3 mt-6">
+        {testimonials.map((_, i) => (
+          <button 
+            key={i} 
+            className={`w-3 h-3 rounded-full transition-all duration-200 ${
+              i === index ? 'bg-gold-400 scale-125' : 'bg-gray-600 hover:bg-gray-500'
+            }`} 
+            onClick={() => setIndex(i)} 
+          />
+        ))}
+      </div>
+    </div>
+  );
+});
+
+TestimonialCarousel.displayName = 'TestimonialCarousel';
+
+const HeroBgCarousel = memo(() => {
+  const [current, setCurrent] = useState(0);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => setCurrent((c) => (c + 1) % slides.length), 8000);
+    return () => clearTimeout(timer);
+  }, [current]);
+
+  return (
+    <div className="absolute inset-0 w-full h-full">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 w-full h-full"
+        >
+          <Image
+            src={slides[current].src}
+            alt={slides[current].alt}
+            fill
+            className="object-cover"
+            priority={current === 0}
+            quality={75}
+            sizes="100vw"
+          />
+        </motion.div>
+      </AnimatePresence>
+      
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+      
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current + '-text'}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl"
+          >
+            <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 text-gradient">
+              {slides[current].title}
+            </h1>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 mb-8">
+              {slides[current].subtitle}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/portfolio" className="btn btn-primary text-lg px-8 py-4">
+                View Portfolio <FaArrowRight className="ml-2" />
+              </Link>
+              <button className="btn glass text-white hover:bg-white/20 text-lg px-8 py-4">
+                <FaPlay className="mr-2" /> Watch Reel
+              </button>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+      
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            className={`w-4 h-4 rounded-full border-2 transition-all duration-200 ${
+              i === current 
+                ? 'bg-gold-400 border-gold-400 scale-125' 
+                : 'bg-transparent border-white/50 hover:border-white'
+            }`}
+            onClick={() => setCurrent(i)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+});
+
+HeroBgCarousel.displayName = 'HeroBgCarousel';
+
+export default function Home() {
+  const portfolioImages = useMemo(() => [
+    "/Images/wedding.jpg",
+    "/Images/graduation.jpg", 
+    "/Images/camera.jpg"
+  ], []);
+
+  return (
+    <>
+      <Head>
+        <title>ZAN E-lite Visuals | Professional Photography & Videography</title>
+        <meta name="description" content="Capturing Light, Creating Stories - Professional photography and videography services for weddings, portraits, events, and more." />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="preload" href="/Images/camera.jpg" as="image" />
+      </Head>
+
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <HeroBgCarousel />
+      </section>
+
+      {/* About Section */}
+      <section className="section-padding bg-gradient-to-b from-black to-gray-900">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="relative group"
+            >
+              <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
+                <div className="aspect-[4/5] relative">
+                  <Image
+                    src="/Images/graduation.jpg"
+                    alt="About ZAN E-lite Visuals"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <span className="text-gold-400 font-medium mb-4 inline-block tracking-wider uppercase text-sm">Who We Are</span>
+              <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8 text-gradient">
+                Capturing Life's Precious Moments
+              </h2>
+              <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
+                <p>
+                  Welcome to <span className="text-gold-400 font-semibold">ZAN E-lite Visuals</span>, where passion meets creativity. Founded in 2015, we've grown from a small photography venture to a full-service visual storytelling company.
+                </p>
+                <p>
+                  Our mission is to capture the essence of every moment, transforming ordinary scenes into extraordinary memories.
+                </p>
+              </div>
+              <Link href="/about" className="btn btn-primary mt-8 inline-flex items-center">
+                Learn More <FaArrowRight className="ml-2" />
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="section-padding bg-gradient-to-r from-gray-900 via-black to-gray-900">
+        <div className="container-custom">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+              >
+                <AnimatedStat value={stat.value} label={stat.label} suffix={stat.suffix} />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Preview */}
+      <section className="section-padding bg-gradient-to-b from-gray-900 to-black">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16"
+          >
+            <span className="text-gold-400 font-medium mb-4 inline-block tracking-wider uppercase text-sm">Our Work</span>
+            <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6 text-gradient">
+              Featured Portfolio
+            </h2>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {portfolioImages.map((src, i) => (
+              <motion.div
+                key={src}
+                className="group relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <Image
+                  src={src}
+                  alt={`Featured ${i+1}`}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </motion.div>
+            ))}
+          </div>
+          
+          <div className="text-center">
+            <Link href="/portfolio" className="btn btn-primary text-lg px-8 py-4">
+              View Full Portfolio <FaArrowRight className="ml-2" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="section-padding bg-gradient-to-b from-black to-gray-900">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-16"
+          >
+            <span className="text-gold-400 font-medium mb-4 inline-block tracking-wider uppercase text-sm">Testimonials</span>
+            <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6 text-gradient">
+              What Our Clients Say
+            </h2>
+          </motion.div>
+          <TestimonialCarousel />
+        </div>
+      </section>
+
+      {/* Contact CTA */}
+      <section className="section-padding bg-gradient-to-r from-gold-900/20 via-black to-gold-900/20">
+        <div className="container-custom text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8 text-gradient">
+              Ready to Capture Your Story?
+            </h2>
+            <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+              Get in touch today for bookings, inquiries, or to discuss your next project.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contact" className="btn btn-primary text-lg px-8 py-4">
+                Contact Us <FaArrowRight className="ml-2" />
+              </Link>
+              <a href="https://wa.me/254706190246" className="btn glass text-white hover:bg-white/20 text-lg px-8 py-4">
+                WhatsApp
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </>
+  );
+}

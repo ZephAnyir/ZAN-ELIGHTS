@@ -1,0 +1,100 @@
+/* Light Theme Styles */
+.light {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 248, 250, 252;
+}
+
+.light body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      rgb(var(--background-start-rgb)),
+      rgb(var(--background-end-rgb))
+    );
+}
+
+/* Light theme component overrides */
+.light .glass {
+  @apply bg-black/5 backdrop-blur-md border border-black/10;
+}
+
+.light .text-gradient {
+  @apply bg-gradient-to-r from-gold-600 via-gray-800 to-gold-600 bg-clip-text text-transparent;
+}
+
+.light .container-custom {
+  @apply text-gray-900;
+}
+
+/* Light theme text colors */
+.light h1,
+.light h2,
+.light h3,
+.light h4,
+.light h5,
+.light h6 {
+  @apply text-gray-900;
+}
+
+.light p {
+  @apply text-gray-700;
+}
+
+/* Light theme navbar */
+.light header {
+  @apply bg-white/90 backdrop-blur-xl border-b border-gray-200/50;
+}
+
+.light .navbar-link {
+  @apply text-gray-700 hover:text-gold-600;
+}
+
+.light .navbar-logo {
+  @apply text-gray-900;
+}
+
+/* Light theme sections */
+.light .section-bg-dark {
+  @apply bg-gradient-to-b from-gray-50 to-white;
+}
+
+.light .section-bg-gray {
+  @apply bg-gradient-to-b from-white to-gray-50;
+}
+
+/* Light theme cards */
+.light .card-dark {
+  @apply bg-white/80 border border-gray-200/50 shadow-lg;
+}
+
+.light .text-white {
+  @apply text-gray-900;
+}
+
+.light .text-gray-300 {
+  @apply text-gray-600;
+}
+
+.light .text-gray-400 {
+  @apply text-gray-500;
+}
+
+/* Light theme footer */
+.light footer {
+  @apply bg-gradient-to-b from-gray-100 to-gray-200 text-gray-800;
+}
+
+/* Light theme buttons */
+.light .btn-glass {
+  @apply bg-white/80 text-gray-900 hover:bg-white/90 border border-gray-200/50;
+}
+
+/* Light theme scrollbar */
+.light ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d97706, #b45309);
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
