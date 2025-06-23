@@ -132,8 +132,8 @@ export default function Booking() {
                     animate={{ opacity: 1, y: 0 }}
                     className={`mb-8 p-6 rounded-2xl flex items-start gap-4 ${
                       submitStatus.success 
-                        ? 'bg-green-900/50 text-green-300 border border-green-500/30' 
-                        : 'bg-red-900/50 text-red-300 border border-red-500/30'
+                        ? 'bg-green-900/50 dark:bg-green-900/50 light:bg-green-100/90 text-green-300 dark:text-green-300 light:text-green-800 border border-green-500/30 dark:border-green-500/30 light:border-green-300' 
+                        : 'bg-red-900/50 dark:bg-red-900/50 light:bg-red-100/90 text-red-300 dark:text-red-300 light:text-red-800 border border-red-500/30 dark:border-red-500/30 light:border-red-300'
                     }`}
                   >
                     {submitStatus.success ? <FaCheckCircle className="w-6 h-6 mt-1 flex-shrink-0" /> : <FaExclamationTriangle className="w-6 h-6 mt-1 flex-shrink-0" />}
@@ -164,7 +164,7 @@ export default function Booking() {
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 text-white dark:text-white light:text-gray-900 transition-all duration-300"
+                          className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 dark:placeholder-gray-500 light:placeholder-gray-400 text-white dark:text-white light:text-gray-900 bg-white/5 dark:bg-white/5 light:bg-white/90 border border-white/10 dark:border-white/10 light:border-gray-300 transition-all duration-300"
                           placeholder="Your full name"
                         />
                       </div>
@@ -178,7 +178,7 @@ export default function Booking() {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 text-white dark:text-white light:text-gray-900 transition-all duration-300"
+                          className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 dark:placeholder-gray-500 light:placeholder-gray-400 text-white dark:text-white light:text-gray-900 bg-white/5 dark:bg-white/5 light:bg-white/90 border border-white/10 dark:border-white/10 light:border-gray-300 transition-all duration-300"
                           placeholder="your@email.com"
                         />
                       </div>
@@ -192,7 +192,7 @@ export default function Booking() {
                           value={formData.phone}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 text-white dark:text-white light:text-gray-900 transition-all duration-300"
+                          className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 dark:placeholder-gray-500 light:placeholder-gray-400 text-white dark:text-white light:text-gray-900 bg-white/5 dark:bg-white/5 light:bg-white/90 border border-white/10 dark:border-white/10 light:border-gray-300 transition-all duration-300"
                           placeholder="+254 700 000000"
                         />
                       </div>
@@ -215,7 +215,7 @@ export default function Booking() {
                           value={formData.service}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent text-white dark:text-white light:text-gray-900 transition-all duration-300"
+                          className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent text-white dark:text-white light:text-gray-900 bg-white/5 dark:bg-white/5 light:bg-white/90 border border-white/10 dark:border-white/10 light:border-gray-300 transition-all duration-300"
                         >
                           <option value="">Select a service</option>
                           {services.map((service) => (
@@ -238,7 +238,7 @@ export default function Booking() {
                             onChange={handleChange}
                             required
                             min={new Date().toISOString().split('T')[0]}
-                            className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent text-white dark:text-white light:text-gray-900 transition-all duration-300"
+                            className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent text-white dark:text-white light:text-gray-900 bg-white/5 dark:bg-white/5 light:bg-white/90 border border-white/10 dark:border-white/10 light:border-gray-300 transition-all duration-300"
                           />
                         </div>
                         <div>
@@ -249,7 +249,7 @@ export default function Booking() {
                             name="time"
                             value={formData.time}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent text-white dark:text-white light:text-gray-900 transition-all duration-300"
+                            className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent text-white dark:text-white light:text-gray-900 bg-white/5 dark:bg-white/5 light:bg-white/90 border border-white/10 dark:border-white/10 light:border-gray-300 transition-all duration-300"
                           >
                             <option value="">Select time</option>
                             {timeSlots.map((time) => (
@@ -268,7 +268,7 @@ export default function Booking() {
                           name="location"
                           value={formData.location}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 text-white dark:text-white light:text-gray-900 transition-all duration-300"
+                          className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 dark:placeholder-gray-500 light:placeholder-gray-400 text-white dark:text-white light:text-gray-900 bg-white/5 dark:bg-white/5 light:bg-white/90 border border-white/10 dark:border-white/10 light:border-gray-300 transition-all duration-300"
                           placeholder="Where will the session take place?"
                         />
                       </div>
@@ -284,7 +284,7 @@ export default function Booking() {
                             value={formData.guests}
                             onChange={handleChange}
                             min="1"
-                            className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 text-white dark:text-white light:text-gray-900 transition-all duration-300"
+                            className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 dark:placeholder-gray-500 light:placeholder-gray-400 text-white dark:text-white light:text-gray-900 bg-white/5 dark:bg-white/5 light:bg-white/90 border border-white/10 dark:border-white/10 light:border-gray-300 transition-all duration-300"
                             placeholder="How many people?"
                           />
                         </div>
@@ -296,7 +296,7 @@ export default function Booking() {
                             name="budget"
                             value={formData.budget}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent text-white dark:text-white light:text-gray-900 transition-all duration-300"
+                            className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent text-white dark:text-white light:text-gray-900 bg-white/5 dark:bg-white/5 light:bg-white/90 border border-white/10 dark:border-white/10 light:border-gray-300 transition-all duration-300"
                           >
                             <option value="">Select budget range</option>
                             <option value="under-20k">Under KSh 20,000</option>
@@ -324,7 +324,7 @@ export default function Booking() {
                         rows="5"
                         value={formData.message}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 text-white dark:text-white light:text-gray-900 transition-all duration-300 resize-none"
+                        className="w-full px-4 py-3 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 dark:placeholder-gray-500 light:placeholder-gray-400 text-white dark:text-white light:text-gray-900 bg-white/5 dark:bg-white/5 light:bg-white/90 border border-white/10 dark:border-white/10 light:border-gray-300 transition-all duration-300 resize-none"
                         placeholder="Tell us about your vision, special requirements, or any other details that would help us prepare for your session..."
                       ></textarea>
                     </div>
@@ -370,7 +370,7 @@ export default function Booking() {
                     href="https://wa.me/254706190246" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-3 glass rounded-xl hover:bg-green-500/20 transition-all duration-300 group"
+                    className="flex items-center gap-3 p-3 glass rounded-xl hover:bg-green-500/20 dark:hover:bg-green-500/20 light:hover:bg-green-100/60 transition-all duration-300 group"
                   >
                     <div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center text-green-400 group-hover:animate-float">
                       <FaWhatsapp className="w-5 h-5" />
@@ -382,8 +382,8 @@ export default function Booking() {
                   </a>
                   
                   <a 
-                    href="mailto:zephaniaanyir@gmail.com"
-                    className="flex items-center gap-3 p-3 glass rounded-xl hover:bg-blue-500/20 transition-all duration-300 group"
+                    href="mailto:zanelightvisuals@gmail.com"
+                    className="flex items-center gap-3 p-3 glass rounded-xl hover:bg-blue-500/20 dark:hover:bg-blue-500/20 light:hover:bg-blue-100/60 transition-all duration-300 group"
                   >
                     <div className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 group-hover:animate-float">
                       <FaEnvelope className="w-5 h-5" />

@@ -131,7 +131,7 @@ export default function Contact() {
             {contactInfo.map((item, index) => (
               <motion.div 
                 key={index}
-                className="glass p-6 rounded-2xl text-center hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/5 transition-all duration-300 group"
+                className="glass p-6 rounded-2xl text-center hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-gray-100/80 transition-all duration-300 group"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -149,12 +149,12 @@ export default function Contact() {
                     href={item.link} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-300 dark:text-gray-300 light:text-gray-600 hover:text-gold-400 dark:hover:text-gold-400 light:hover:text-gold-600 transition-colors duration-300 break-all"
+                    className="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-gold-400 dark:hover:text-gold-400 light:hover:text-gold-600 transition-colors duration-300 break-all"
                   >
                     {item.content}
                   </a>
                 ) : (
-                  <p className="text-gray-300 dark:text-gray-300 light:text-gray-600">{item.content}</p>
+                  <p className="text-gray-300 dark:text-gray-300 light:text-gray-700">{item.content}</p>
                 )}
               </motion.div>
             ))}
@@ -192,8 +192,8 @@ export default function Contact() {
                   animate={{ opacity: 1, y: 0 }}
                   className={`mb-8 p-6 rounded-2xl flex items-start gap-4 ${
                     submitStatus.success 
-                      ? 'bg-green-900/50 text-green-300 border border-green-500/30' 
-                      : 'bg-red-900/50 text-red-300 border border-red-500/30'
+                      ? 'bg-green-900/50 dark:bg-green-900/50 light:bg-green-100/90 text-green-300 dark:text-green-300 light:text-green-800 border border-green-500/30 dark:border-green-500/30 light:border-green-300' 
+                      : 'bg-red-900/50 dark:bg-red-900/50 light:bg-red-100/90 text-red-300 dark:text-red-300 light:text-red-800 border border-red-500/30 dark:border-red-500/30 light:border-red-300'
                   }`}
                 >
                   {submitStatus.success ? <FaCheckCircle className="w-6 h-6 mt-1 flex-shrink-0" /> : <FaExclamationTriangle className="w-6 h-6 mt-1 flex-shrink-0" />}
@@ -218,7 +218,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-4 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 text-white dark:text-white light:text-gray-900 transition-all duration-300"
+                      className="w-full px-4 py-4 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 dark:placeholder-gray-500 light:placeholder-gray-400 text-white dark:text-white light:text-gray-900 bg-white/5 dark:bg-white/5 light:bg-white/90 border border-white/10 dark:border-white/10 light:border-gray-300 transition-all duration-300"
                       placeholder="John Doe"
                     />
                   </div>
@@ -232,7 +232,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-4 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 text-white dark:text-white light:text-gray-900 transition-all duration-300"
+                      className="w-full px-4 py-4 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 dark:placeholder-gray-500 light:placeholder-gray-400 text-white dark:text-white light:text-gray-900 bg-white/5 dark:bg-white/5 light:bg-white/90 border border-white/10 dark:border-white/10 light:border-gray-300 transition-all duration-300"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -248,7 +248,7 @@ export default function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-4 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 text-white dark:text-white light:text-gray-900 transition-all duration-300"
+                      className="w-full px-4 py-4 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 dark:placeholder-gray-500 light:placeholder-gray-400 text-white dark:text-white light:text-gray-900 bg-white/5 dark:bg-white/5 light:bg-white/90 border border-white/10 dark:border-white/10 light:border-gray-300 transition-all duration-300"
                       placeholder="+254 700 000000"
                     />
                   </div>
@@ -260,7 +260,7 @@ export default function Contact() {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full px-4 py-4 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent text-white dark:text-white light:text-gray-900 transition-all duration-300"
+                      className="w-full px-4 py-4 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent text-white dark:text-white light:text-gray-900 bg-white/5 dark:bg-white/5 light:bg-white/90 border border-white/10 dark:border-white/10 light:border-gray-300 transition-all duration-300"
                     >
                       <option value="">Select a service</option>
                       <option value="Wedding Photography">Wedding Photography</option>
@@ -284,7 +284,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-4 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 text-white dark:text-white light:text-gray-900 transition-all duration-300 resize-none"
+                    className="w-full px-4 py-4 glass rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-transparent placeholder-gray-500 dark:placeholder-gray-500 light:placeholder-gray-400 text-white dark:text-white light:text-gray-900 bg-white/5 dark:bg-white/5 light:bg-white/90 border border-white/10 dark:border-white/10 light:border-gray-300 transition-all duration-300 resize-none"
                     placeholder="Tell us about your project, preferred dates, budget, or any questions you have..."
                   ></textarea>
                 </div>
@@ -343,7 +343,7 @@ export default function Contact() {
               </a>
               <a 
                 href="tel:+254706190246"
-                className="btn glass text-white dark:text-white light:text-gray-900 hover:bg-white/20 dark:hover:bg-white/20 light:hover:bg-black/10 text-lg px-8 py-4"
+                className="btn glass text-white dark:text-white light:text-gray-900 hover:bg-white/20 dark:hover:bg-white/20 light:hover:bg-gray-100/80 text-lg px-8 py-4"
               >
                 <FaPhone className="mr-2" /> Call Now
               </a>
